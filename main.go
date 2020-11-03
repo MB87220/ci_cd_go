@@ -21,17 +21,17 @@ var id int
 
 func main (){
 	// ENRUTADOR DE GORILLA MUX
-	gorilla_router := mux.NewRouter().StrictSlash(false)
+	gorillarouter := mux.NewRouter().StrictSlash(false)
 
 	// MANEJADORES POR VERBOS HTTP
-	gorilla_router.HandleFunc("/api/notes",GetNoteHandler).Methods("GET")
-	gorilla_router.HandleFunc("/api/notes",PostNoteHandler).Methods("POST")
-	gorilla_router.HandleFunc("/api/notes/{id}",PutNoteHandler).Methods("PUT")
-	gorilla_router.HandleFunc("/api/notes/{id}",DeleteNoteHandler).Methods("DELETE")
+	gorillarouter.HandleFunc("/api/notes",GetNoteHandler).Methods("GET")
+	gorillarouter.HandleFunc("/api/notes",PostNoteHandler).Methods("POST")
+	gorillarouter.HandleFunc("/api/notes/{id}",PutNoteHandler).Methods("PUT")
+	gorillarouter.HandleFunc("/api/notes/{id}",DeleteNoteHandler).Methods("DELETE")
 
 	server := &http.Server{
 		Addr: ":8080",
-		Handler: gorilla_router,
+		Handler: gorillarouter,
 		ReadTimeout: 10 * time.Second,
 		WriteTimeout: 10 * time.Second,
 		MaxHeaderBytes: 1 << 20,
