@@ -106,7 +106,7 @@ func PutNoteHandler(w http.ResponseWriter, r *http.Request){
 
 		datosNotas[k] = notaUpdate
 	} else {
-		log.Printf("No se encontro la nota con el id es: %d",k )
+		
 	}
 
 
@@ -124,7 +124,7 @@ func DeleteNoteHandler(w http.ResponseWriter, r *http.Request){
 	if _, ok := datosNotas[k];ok {
 		delete (datosNotas,k)
 	} else {
-		log.Printf("No se encontro la nota con el id es: %d",k )
+		
 	}
 
 	
