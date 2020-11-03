@@ -9,7 +9,7 @@ import (
 	"log"
 )
 
-
+// Nota ...
 type Nota struct {
 	Titulo string `json:"titulo"` 			
 	Descripcion string `json:"descripcion"`
@@ -18,7 +18,7 @@ type Nota struct {
 
 var datosNotas = make (map[string]Nota)
 var id int
-
+// Main ..
 func main (){
 	gorillarouter := mux.NewRouter().StrictSlash(false)
 
@@ -42,7 +42,7 @@ func main (){
 
 }
 
-
+// GetNoteHandler ...
 func GetNoteHandler(w http.ResponseWriter, r *http.Request){
 	var notas []Nota
 	for _,valor := range datosNotas {
@@ -59,7 +59,7 @@ func GetNoteHandler(w http.ResponseWriter, r *http.Request){
 	w.Write(j)
 
 }
-
+// PostNoteHandler
 func PostNoteHandler(w http.ResponseWriter, r *http.Request){
 
 	var nota Nota
@@ -85,7 +85,7 @@ func PostNoteHandler(w http.ResponseWriter, r *http.Request){
 	w.Write(j)
 }
 
-
+// PutNoteHandler ...
 func PutNoteHandler(w http.ResponseWriter, r *http.Request){
 	vars := mux.Vars(r)
 	k := vars["id"]
@@ -114,7 +114,7 @@ func PutNoteHandler(w http.ResponseWriter, r *http.Request){
 
 }
 
-
+// DeleteNoteHandler ...
 func DeleteNoteHandler(w http.ResponseWriter, r *http.Request){
 	
 	vars := mux.Vars(r)
