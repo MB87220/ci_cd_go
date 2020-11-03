@@ -59,7 +59,7 @@ func GetNoteHandler(w http.ResponseWriter, r *http.Request){
 	w.Write(j)
 
 }
-// PostNoteHandler
+// PostNoteHandler ...
 func PostNoteHandler(w http.ResponseWriter, r *http.Request){
 
 	var nota Nota
